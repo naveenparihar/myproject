@@ -1,0 +1,42 @@
+<% include ../partials/loginheader %>
+<% include ../partials/navbar %>
+<% include ../partials/subadminSidebar %>
+
+    <div class="col-md-9 admin-opt">
+        <br>
+        <h1 class="google-sans live-caption">Admin menu<span class = 'roboto weight-300' style = 'font-size: 0.8em'>  | Transactions </span></h1>
+        <hr>
+        <div class="live-load">
+            <div class="container" style="width:94%; text-align: center">
+                <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Transaction ID</th>
+                                  <th scope="col">Username</th>
+                                  <th scope="col">Phone Number</th>
+                                  <th scope="col">Credit </th>
+                                  <th scope="col">Date</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <% let i = 1 %>
+                            <% data.forEach(function(entry) { %>
+                                <tr>
+                                    <th scope="row"><%= i %></th>
+                                    <td><%= entry.id %></td>
+                                    <td><%= entry.username %></td>
+                                    <td><%= entry.phone %></td>
+                                    <td><%= entry.credit %></td>
+                                    <td><%= entry.date.toLocaleString() %></td>
+                                <tr>
+                                <% i = i+1 %>
+                            <% }); %>
+                        </tbody>
+                </table>
+                <p class="user-result"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

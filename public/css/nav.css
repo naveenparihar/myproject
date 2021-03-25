@@ -1,0 +1,301 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+header {
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -5px 6px 18px #0000001a;
+    z-index: 1000;
+    color: #fff;
+    box-shadow: none;   
+   
+    
+}
+header .promo-logo {
+    display: flex;
+    min-width: 200px;
+}
+header h2 {
+    padding-left:15px;
+}
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    perspective: 1500px; 
+}
+.admin-nav {
+    background: #1565C0;
+    color:#fff;
+    font-size:1.3em;
+}
+
+#sidebar {
+    height: 90vh;
+    color: #fff;
+    padding: 20px 0px 0px 30px;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
+  
+}
+
+ #sidebar.active {
+    margin-left: -250px;
+    transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+}
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border:none;
+    outline:none; 
+    transition: 0.3s all ease-in;
+}
+.t1{
+    text-align:left;
+     color:#119a1d;
+      font-size: 20px;
+}
+#sidebarCollapse:hover {
+    border-radius: 1000px;
+    background: #ffffff6e;
+}
+
+#sidebarCollapse span:hover {
+    background: #0000001a;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+}
+
+#sidebarCollapse span {
+    /* no rotation */
+    transform: none;
+    /* all bars are visible */
+    opacity: 1;
+    margin: 5px auto;
+}
+
+/*-----Media Queries-------*/
+
+.userinfo {
+    line-height: 2.5;
+    font-size:1.2em;
+}
+
+.userinfo span {
+    padding : 15px;
+}
+.userinfo a>button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+
+.sidebar-header {
+    padding: 5px;
+    border-radius: 9px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 1px 2px 5px 0px #00000024;
+}
+
+.sidebar-header h3 {
+    font-size: 20px;
+    color: #FFC107;
+}
+
+.sidebar-header hr {
+    margin-top: 0px;
+}
+
+.credit {
+    display: flex;
+    margin:4% 0 0 0;
+}
+.credit img {
+    height: 24px;
+    margin: 0 6% 0 7%;
+}
+.add-credit {
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1565C0;
+}
+nav#sidebar {
+    float:left;
+}
+nav#sidebar ul {
+    margin-top:20px;
+}
+nav#sidebar>ul li {
+    padding:8px 12px;
+    font-size: 18px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+
+@media (max-width: 768px) {
+  
+    #sidebar {
+        margin-left: -250px;
+        height: 63%;
+        transform: rotateY(100deg);
+        position: absolute;
+        z-index: 99;
+        background-color:#1d2124bf;
+        border-radius: 5px;
+        padding: 12px;
+       box-shadow: 3px 2px 7px #00000075;    
+    }
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+    /* Removing the vertical margin and make the first and last bars rotate again when the sidebar is open, hiding the second bar */
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+    nav#sidebar>ul li {
+      
+        font-size: 15px;
+    }
+    
+.sidebar-header h3 {
+    font-size: 15px;
+    color: #FFC107;
+}
+.add-credit {
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1565C0;
+}
+.credit img {
+    height: 22px;
+    margin: 0 6% 0 7%;
+}
+.t1{
+    text-align:left; color:#119a1d; font-size: 16px;
+}
+.userinfo a>button {
+    padding: 6px;
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+.userinfo span {
+    font-size: 18px;
+    padding:15px;
+}
+
+}
+ @media screen and (max-height: 425px) { 
+  .sidenav
+   {padding-top: 15px;} 
+  .sidenav a 
+  {font-size: 18px;} 
+  .userinfo span {
+    font-size: 15px;
+    padding:15px;
+}
+.userinfo a>button {
+    padding: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 500px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+#sidebarCollapse {
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border:none;
+    outline:none; 
+    transition: 0.3s all ease-in;
+}
+  
+#sidebar {
+   width: 135px;  
+   border-radius: 10px;
+   height: 60%;
+}
+nav#sidebar>ul li {
+      
+    font-size: 13px;
+}
+ } 

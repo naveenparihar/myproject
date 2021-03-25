@@ -1,0 +1,993 @@
+<% include ../partials/table %>
+<div class="container-fluid">
+    <div class="row a2">
+        <div class="col-6  pt-2">
+            <a> <img class="img-1" data-dialog="somedialog" class="trigger" src="/assets/images/m1.png"></a>
+            <div class="modal fade" id="inviteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title google-sans" id="exampleModalLabel" style="color:#333">Invite User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="color: #333">
+                            <p><input type="button" id='invite-btn' value="invite"></p>
+                            <% allUser.forEach((user)=> { %>
+                            <input type="radio" name="invite" value='<%= user.username %>'>
+                            <%= user.username %> <br>
+                            <hr>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="data-strip1">
+                <div class="invite-req-btn" hidden>
+                    <div class="req-msg"></div>
+                  
+                    <button id='accept-invite-req'><a class='invite-href' href=''> Accept</a></button>
+                    <button id='decline-invite-req'>Decline</button>
+                </div> 
+            </div>
+            <div class="userinfo">
+                <i class="far fa-user" style="color:#ffff"></i>
+                <span class="s2">
+                    <%= currUser.username %></span>
+                <span class="s1">₹
+                    <%= currUser.credits %></span>
+                <a href="/auth/logout"><button id="logout"><i class="fas fa-power-off"></i></button></a>
+            </div>
+        </div>
+    </div>
+    <div class="row user-container a2">
+        <div class="col-4" style="z-index:-1">
+            <div class="user-card ml-auto top-left-card" id="user2">
+                <!-- <div class="pokercard"> -->
+                <div class="row">
+                    <div class="col-6 text-center" id="user2Pro">
+                        <div class="pokercard">
+                            <h6 id="status2">Boot</h6>
+                            <div id="proimg2" class="groupimage mx-auto mb-2"></div>
+                            <h6 class="user-name" id="userName2">Name</h6>
+                            <h6 id="bootAmount2">₹0</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="coin2" style="position: absolute;color: #fff;display: none;">
+                            <img src="/assets/images/chip.svg" class="pot">
+                            <span id="theUpdatedValue2" class="c3" style="font-size:18px;">
+                                <%= room.bootAmount %></span>
+                        </div>
+                        <div class="cards-container-top">
+                            <img id="user21" class="img1" src="/assets/images/cardback.svg" hidden>
+                            <img id="user22" class="img2" src="/assets/images/cardback.svg" hidden>
+                            <img id="user23" class="img3" src="/assets/images/cardback.svg" hidden>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="flash-box" style="position: absolute">
+                <div class="alert alert-light mt-3" role="alert">
+                    <small class="flash-message"></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="user-card mr-auto top-right-card" id="user3">
+                <!-- <div class="pokercard"> -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="cards-container-top card-right">
+                            <img id="user31" class="img1" src="/assets/images/cardback.svg" hidden>
+                            <img id="user32" class="img2" src="/assets/images/cardback.svg" hidden>
+                            <img id="user33" class="img3" src="/assets/images/cardback.svg" hidden>
+                        </div>
+                        <div class="coin3" style="position: absolute;color: #fff;display: none;">
+                            <img src="/assets/images/chip.svg" class="pot">
+                            <span id="theUpdatedValue3" class="c3" style="font-size:18px;">
+                                <%= room.bootAmount %></span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center" id="user3Pro">
+                        <div class="pokercard">
+                            <h6 id="status3">Boot</h6>
+                            <div id="proimg3" class="groupimage mx-auto mb-2"></div>
+                            <h6 class="user-name" id="userName3">Name</h6>
+                            <h6 id="bootAmount3">₹0</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+
+            </div>
+        </div>
+    </div>
+    <div class="row user-container a2">
+        <div class="col-4">
+            <div class="user-card bottom-left-card" id="user1">
+                <!-- <div class="pokercard"> -->
+                <div class="row">
+                    <div class="col-6 text-center" id="user1Pro">
+                        <div class="pokercard">
+                            <h6 id="status1">Boot</h6>
+                            <div id="proimg1" class="groupimage mx-auto mb-2"></div>
+                            <h6 class="user-name" id="userName1">Name</h6>
+                            <h6 id="bootAmount1">₹0</h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="coin1" style="position: absolute;color: #fff;display: none;">
+                            <img src="/assets/images/chip.svg" class="pot">
+                            <span id="theUpdatedValue1" class="c3" style="font-size:18px;">
+                                <%= room.bootAmount %></span>
+                        </div>
+                        <div class="cards-container-bottom">
+                            <img id="user11" class="img1" src="/assets/images/cardback.svg" hidden>
+                            <img id="user12" class="img2" src="/assets/images/cardback.svg" hidden>
+                            <img id="user13" class="img3" src="/assets/images/cardback.svg" hidden>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row c9">
+                <div class="col-6 text-right">
+                    <img src="/assets/images/chip.svg" class="pot-img">
+                </div>
+                <div class="col-6">
+                    <div class="pot-value google-sans ml-2">₹0</div>
+                </div>
+            </div>
+            <div class="user-card mx-auto bottom-center-card" id="user5">
+
+                <!-- <div class="pokercard"> -->
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <div class="pokercard">
+                            <div class="userimage mx-auto mb-2"></div>
+                            <h6 class="user-name" id="userName5">
+                                <%= currUser.username %>
+                            </h6>
+                            <h6 class="s1">₹
+                                <%= currUser.credits %>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="coin5" style="position: absolute;color: #fff;display: none;">
+                            <img src="/assets/images/chip.svg" class="pot">
+                            <span id="theUpdatedValue5" class="c3" style="font-size:18px;">
+                                <%= room.bootAmount %></span>
+                        </div>
+                        <div class="cards-container card-center-container">
+                            <img id="u1" class="img1" src="/assets/images/cardback.svg" hidden>
+                            <img id="u2" class="img2" src="/assets/images/cardback.svg" hidden>
+                            <img id="u3" class="img3" src="/assets/images/cardback.svg" hidden>
+                        </div>
+                        <input type="button" id="see-button" onclick="playAudio2()" value="See Cards" class="btn btn-sm btn-primary btn-see-cards mt-2"
+                            hidden>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="user-card bottom-right-card" id="user4">
+                <!-- <div class="pokercard"> -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="cards-container-bottom card-right">
+                            <img id="user41" class="img1" src="/assets/images/cardback.svg" hidden>
+                            <img id="user42" class="img2" src="/assets/images/cardback.svg" hidden>
+                            <img id="user43" class="img3" src="/assets/images/cardback.svg" hidden>
+                        </div>
+                        <div class="coin4" style="position: absolute;color: #fff;display: none;">
+                            <img src="/assets/images/chip.svg" class="pot">
+                            <span id="theUpdatedValue4" class="c3" style="font-size:18px;">
+                                <%= room.bootAmount %></span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center" id="user4Pro">
+                        <div class="pokercard">
+                            <h6 id="status4">Boot</h6>
+                            <div id="proimg4" class="groupimage mx-auto mb-2"></div>
+                            <h6 class="user-name" id="userName4">Name</h6>
+                            <h6 id="bootAmount4">₹0</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="row a2">
+        <div class="col-3 data-strip req-btn" hidden>
+            <div class="row">
+                <span class="req-message"></span>
+                <div class="bt1">
+                    <button class="btn btn-primary btn-sm" id='accept'>Accept</button>
+                    <button class="btn btn-primary btn-sm" id='decline'>Decline</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 action-bar" style="position:absolute;right: 0;" hidden>
+            <div class="row">
+                <div class="col-1">
+                    <button id="pack" type="button" class="btn btn-primary btn-sm">Pack</button>
+                </div>
+                <div class="col-1">
+
+                    <div class="timer">
+                        <svg class="rotate" viewbox="0 0 250 250">
+                            <path id="loader" transform="translate(125, 125)" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row" id="chaalValue">
+                        <div class="col-3">
+                            <button id="dec" disabled class="btn btn-primary btn-sm">-</button>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="theValue" class="t6" value='<%= room.bootAmount %>' readonly>
+                        </div>
+                        <div class="col-3">
+                            <button id="inc" class="col-3 btn btn-primary btn-sm">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <button id="blind" type="button" class="btn btn-primary btn-sm c1" onclick="playAudio()">Blind</button>
+                    <button id="chaal" type="button" class="btn btn-primary btn-sm c1" onclick="playAudio()">Chaal</button>
+                </div>
+                <div class="col-1">
+                    <button id="show" type="button" class="btn btn-primary btn-sm " onclick="playAudio2()">Show</button>
+                    <button id="sideshow" class="btn btn-primary btn-sm ">Sideshow</button>
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="myAudio">
+        <source src="/assets/audio/chaal.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudio2">
+        <source src="/assets/audio/seen.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudio3">
+        <source src="/assets/audio/card shuffle.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<div class="tee4" id="tee12" style="color:#fff">
+    <!-- <h6>2</h6> -->
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+
+</div>
+<div class="tee4" id="tee3" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee11" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee14" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee15" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee22" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee23" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee21" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee24" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee25" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee32" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee33" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee31" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee34" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div class="tee4" id="tee35" style="color:#fff">
+    <img src="/assets/images/cardback.svg" class="tee4img1" height="40px;">
+</div>
+<div id="somedialog" class="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+        <h2><strong>Do</strong>, you want to exit</h2>
+        <div><a href="/game"><button style="color:#fff" class="action" id='leave' data-dialog-close>Exit</button></a></div>
+    </div>
+</div>
+<script>
+    (function () {
+        var dlgtrigger = document.querySelector('[data-dialog]'),
+            somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')),
+            dlg = new DialogFx(somedialog);
+
+        dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
+
+    })();
+    var seconds;
+    var doPlay;
+    var loader, α, π, t;
+    var timer;
+    function draw() {
+        α++;
+        α %= 180;
+        var r = (α * π / 90),
+            x = Math.sin(r) * 125,
+            y = Math.cos(r) * - 125,
+            mid = (α > 90) ? 1 : 0,
+            anim = 'M 0 0 v -125 A 125 125 1 '
+                + mid + ' 1 '
+                + x + ' '
+                + y + ' z';
+
+        loader.setAttribute('d', anim);
+        if (!doPlay) {
+            setTimeout(draw, t); // Reset draw
+        }
+        if (doPlay) {
+            clearTimeout(timer)
+            timer = setTimeout(draw, t); // Redraw
+        }
+    };
+    var x = document.getElementById("myAudio");
+    function playAudio() {
+        x.play();
+    }
+    var y = document.getElementById("myAudio2");
+    function playAudio2() {
+        y.play();
+    }
+    $('.give-tip').attr('hidden', false)
+    function findDivWithName(name) {
+        var userArr = document.querySelectorAll('.user-card');
+        var uName = document.querySelectorAll(".user-name");
+        for (let i = 0; i < userArr.length; i++) {
+            if (uName[i].innerText.trim() == name) {
+                console.log(userArr[i].id)
+                return userArr[i].id;
+            }
+        }
+        return null;
+    }
+    var chaalValue;
+    var socket = io.connect("https://teen-patti-game.herokuapp.com/game/<%=room.roomName%>");
+    // https://teen-patti-game.herokuapp.com http://localhost:4400
+    socket.emit('create', '<%= table %>', '<%= currUser.id%>', '<%= currUser.username%>', '<%= room.bootAmount %>', '<%=room.potLimit %>', '<%= currUser.credits %>', '<%= currUser.typeOfUser %>', '<%=room.minBuyIn %>');
+    socket.on('populate', (data) => {
+        let i = 1;
+        data.players.forEach(element => {
+            if (element.username.name != '<%=currUser.username%>') {
+                var username = '#userName' + i;
+                let proimg = "#proimg" + i;
+                $(proimg).removeClass('groupimage');
+                $(proimg).addClass('userimage');
+                $(username).text(element.username.name);
+                i = i + 1;
+            }
+        });
+    })
+    socket.on('remove', (data, user) => {
+        let i = 1;
+        for (let i = 1; i <= 5; i++) {
+            let name = '#userName' + i;
+            name = $(name).text();
+            if (user == name) {
+                $("#proimg" + i).removeClass('userimage');
+                $("#proimg" + i).addClass('groupimage');
+                $('#userName' + i).text('Name');
+                $('#bootAmount' + i).text('₹0');
+                $('#status' + i).text('Boot');
+            }
+        }
+    })
+    socket.emit('gamejoin', '<%= table %>', '<%= currUser.username%>');
+    socket.emit('fulfill', '<%= table %>');
+    socket.on('wait', (data) => {
+        $('.flash-message').text("Please wait for the current round to finish");
+        $('.alert-light').fadeIn(300);
+    })
+    socket.on('waitforothers', (data) => {
+        $('.flash-message').text("Please wait for other players to join");
+        $('.alert-light').fadeIn(300);
+    })
+    socket.on('joined', (data) => {
+        $('.flash-message').text("You're in the game");
+        $('.alert-light').fadeIn(300).delay(1000).fadeOut(300);
+    })
+    socket.on('card shuffle', (tableID) => {
+        var z = document.getElementById("myAudio3");
+        function playAudio3() {
+            z.play();
+        }
+        playAudio3();
+        var time = -200;
+        for (let j = 1; j <= 3; j++) {
+            let id = "#tee" + j;
+            for (let i = 1; i <= 5; i++) {
+                let id1 = id + i;
+                var username = '#userName' + i;
+                username = $(username).text();
+
+                if (username != "Name") {
+                    time = time + 200;
+                    setTimeout(() => {
+                        let animate = [
+                            {},
+                            { "top": "376px", "left": "90px", "opacity": "0", "display": "none" },
+                            { "top": "200px", "left": "90px", "opacity": "0", "display": "none" },
+                            { "top": "200px", "left": "800px", "opacity": "0", "display": "none" },
+                            { "top": "376px", "left": "800px", "opacity": "0", "display": "none" },
+                            { "top": "376px", "opacity": "0", "display": "none" }
+                        ];
+                        let revert = [
+                            {},
+                            { "top": "37vh", "left": "90vh", "opacity": "100", "display": "none" },
+                            { "top": "37vh", "left": "90vh", "opacity": "100", "display": "none" },
+                            { "top": "37vh", "left": "90vh", "opacity": "100", "display": "none" },
+                            { "top": "37vh", "left": "90vh", "opacity": "100", "display": "none" },
+                            { "top": "37vh", "opacity": "100", "display": "none" }
+                        ];
+                        $(id1).show();
+                        $(id1).animate(animate[i], 400, function () {
+                            $(id1).animate(revert[i], 100);
+                            $(id1).hide();
+                        });
+                    }, time)
+                }
+            }
+        }
+    });
+    socket.on('reset', () => {
+        $('#theValue').val('<%= room.bootAmount %>')
+        $('div').removeClass('winner')
+        $('div').removeClass('active-chaal')
+        $('.pot-value').text('₹0');
+        $('.card-status > div').text("Playing Blind")
+        $('.see-btn').prop('disabled', false)
+        $("#see-button").attr('hidden', true);
+        $('.action-bar').attr('hidden', true);
+        $('.action-bar').removeClass('action-bar-active');
+        for (let i = 1; i <= 3; i++) {
+            id = '#u' + i;
+            $(id).attr('hidden', true);
+        }
+        for (let i = 1; i <= 4; i++) {
+            for (let j = 1; j <= 3; j++) {
+                id = '#user' + i;
+                id = id + j;
+                $(id).attr('hidden', true);
+            }
+        }
+    })
+    socket.on('reset pot', () => {
+        // $('.pot-value').text('₹'+potValue);
+        $("#see-button").attr('hidden', false);
+        for (let i = 1; i <= 3; i++) {
+            id = '#u' + i;
+            $(id).attr('src', '/assets/images/cardback.svg')
+            $(id).attr('hidden', false);
+        }
+        for (let i = 1; i <= 4; i++) {
+            var username = '#userName' + i;
+            username = $(username).text();
+            if (username !== "Name") {
+                // $('#bootAmount'+i).text('₹'+'<%= room.bootAmount %>');
+                for (let j = 1; j <= 3; j++) {
+                    id = '#user' + i;
+                    id = id + j;
+                    $(id).attr('src', '/assets/images/cardback.svg')
+                    $(id).attr('hidden', false);
+                }
+            }
+        }
+    })
+    socket.on('gamebegins', (data) => {
+        $('#chaal').css('display', 'none');
+        $('#chaal').prop('disabled', true);
+        $('#show').prop('disabled', true);
+        $('#show').attr('hidden', true);
+        $('#sideshow').prop('disabled', true);
+        $('#sideshow').attr('hidden', true);
+        $('#blind').css('display', 'block');
+        $('#blind').prop('disabled', false);
+        $('#blind').attr('hidden', false);
+        $('.flash-message').text(data);
+        $('.alert-light').fadeIn(300).delay(1000).fadeOut(300);
+    })
+    socket.on('activeChaal', (name, chVl) => {
+        chaalValue = chVl;
+        requiredDiv = findDivWithName(name);
+        if (requiredDiv == "user5") {
+            console.log("if" + name)
+            seconds = 25;
+            α = 0;
+            π = Math.PI;
+            t = (seconds / 180 * 1000);
+            loader = document.getElementById('loader');
+            doPlay = true;
+            draw();
+            $('.action-bar').attr('hidden', false);
+            $('.action-bar').addClass('action-bar-active');
+        }
+        else {
+            $('.action-bar').attr('hidden', true);
+            $('.action-bar').removeClass('action-bar-active');
+        }
+        if (requiredDiv) {
+            if (requiredDiv == 'user5') {
+                requiredDiv = '#' + requiredDiv;
+                $(requiredDiv).addClass('active-chaal')
+            }
+            else {
+                requiredDiv = '#' + requiredDiv + 'Pro';
+                $(requiredDiv).addClass('active-chaal')
+            }
+        }
+    })
+    socket.on('low balance', () => {
+        $('.flash-message').text('You do not have enough credit to place this bet. You may join in the next round, with more credits.')
+        $('.alert-light').fadeIn(300).delay(2000).fadeOut(300);
+        // socket.emit('pack', '<%= table %>', '<%= currUser.username%>');
+        socket.emit('leave', '<%= table %>', '<%= currUser.username%>');
+    })
+    socket.on('removeActiveChaal', (name) => {
+        console.log('remove active chaal');
+        requiredDiv = findDivWithName(name);
+        if (requiredDiv) {
+            if (requiredDiv == 'user5') {
+                requiredDiv = '#' + requiredDiv;
+                $(requiredDiv).removeClass('active-chaal')
+            }
+            else {
+                requiredDiv = '#' + requiredDiv + 'Pro';
+                $(requiredDiv).removeClass('active-chaal')
+            }
+        }
+    })
+    socket.on('declareWinner', (data) => {
+        $('.flash-message').text('Winner of last round is ' + data);
+        $('.alert-light').fadeIn(300).delay(5600).fadeOut(300);
+        requiredDiv = findDivWithName(data);
+        if (requiredDiv) {
+            if (requiredDiv == 'user5') {
+                requiredDiv = '#' + requiredDiv;
+                $(requiredDiv).addClass('winner')
+            }
+            else {
+                requiredDiv = '#' + requiredDiv + 'Pro';
+                $(requiredDiv).addClass('winner')
+            }
+        }
+    })
+    socket.on('blindOver', () => {
+        $('#blind').attr('hidden', true);
+        $('#blind').attr('disabled', true);
+        $('#chaal').attr('hidden', false);
+    })
+    socket.on('updatePotvalue', (data, userdata, name) => {
+        setTimeout(() => {
+            $('.pot-value').text('₹' + data);
+        }, 2000)
+        for (let i = 1; i <= 5; i++) {
+            let username = '#userName' + i;
+            username = $(username).text();
+            // alert(username);
+            if (username.trim() == name) {
+                $('#bootAmount' + i).text('₹' + userdata);
+                let animate = [
+                    {},
+                    { "top": "-55px", "left": "300px", "display": "flex" },
+                    { "top": "155px", "left": "300px", "display": "flex" },
+                    { "top": "155px", "left": "-190px", "display": "flex" },
+                    { "top": "-55px", "left": "-190px", "display": "flex" },
+                    { "top": "-85px", "left": "12px", "display": "none" }
+                ];
+                let css = [
+                    {},
+                    { "top": "0", "left": "0", "display": "none", "opacity": "100" },
+                    { "top": "0", "left": "0", "display": "none", "opacity": "100" },
+                    { "top": "0", "left": "0", "display": "none", "opacity": "100" },
+                    { "top": "0", "left": "0", "display": "none", "opacity": "100" },
+                    { "top": "0", "left": "0", "display": "none", "opacity": "100" }
+                ];
+                $("#theUpdatedValue" + i).text($('#theValue').val());
+                $('.coin' + i).css(css[i]);
+                $('.coin' + i).css({ display: 'flex' });
+                $('.coin' + i).animate(animate[i], 2000);
+                $('.coin' + i).fadeOut();
+            }
+        }
+    })
+    socket.on('updatebalance', (player, data) => {
+        // console.log("balance" + player);
+        if (player === '<%=currUser.username%>') {
+            $('.s1').text('₹' + data);
+        }
+    })
+    socket.on('updateChaalValue', (data) => {
+        $('#theValue').val(data);
+    })
+    socket.on('updatePlayer', (status, name) => {
+        if ('<%=currUser.username%>' == name && (status == 'Packed' || status == 'Timed out')) {
+            $("#see-button").attr('hidden', true);
+            for (let i = 1; i <= 3; i++) {
+                id = '#u' + i;
+                $(id).attr('src', '/assets/images/cardback.svg')
+                $(id).attr('hidden', true);
+            }
+        }
+        for (let i = 1; i <= 4; i++) {
+            let username = '#userName' + i;
+            username = $(username).text();
+            if (username.trim() == name) {
+                $('#status' + i).text(status);
+                if (status == 'Packed' || status == 'Timed out') {
+                    for (let j = 1; j <= 3; j++) {
+                        id = '#user' + i;
+                        id = id + j;
+                        $(id).attr('hidden', true);
+                    }
+                }
+            }
+        }
+    })
+    socket.on('disable blind', () => {
+        $('#blind').css('display', 'none');
+        $('#blind').prop('disabled', true);
+        $('#chaal').css('display', 'block');
+        $('#chaal').prop('disabled', false);
+        $('#chaal').attr('hidden', false);
+    })
+    socket.on('restore inc', () => {
+        $('#inc').attr('disabled', false);
+        $('#dec').attr('disabled', true);
+    })
+    socket.on('new game', (timer) => {
+        setTimeout(() => {
+            clearInterval(countdown)
+        }, timer + 1000);
+        let i = timer / 1000;
+        var countdown = setInterval(() => {
+            $('.flash-message').text('Match begins in ' + i);
+            $('.alert-light').fadeIn(0).delay(1000).fadeOut(0);
+            i = i - 1;
+        }, 1000)
+    })
+    socket.on('active show', () => {
+        console.log("huehuheus")
+        $('#show').prop('disabled', false);
+        $('#show').attr('hidden', false);
+        $('#sideshow').prop('disabled', true);
+        $('#sideshow').attr('hidden', true);
+    })
+    socket.on('active side show', () => {
+        $('#sideshow').prop('disabled', false);
+        $('#sideshow').attr('hidden', false);
+    })
+    socket.on('sideshow winner', (data, currUser, preUser) => {
+        $('.flash-message').text(data + ' has won the sideshow!');
+        $('.alert-light').fadeIn(300).delay(1600).fadeOut(300);
+        // if (currUser.username.name === '<%= currUser.username%>' || preUser.username.name === '<%= currUser.username%>') {
+        //     for (let i = 4; i >= 1; i++) {
+        //         let u = '#user' + i;
+        //         let username = '#userName' + i;
+        //         username = $(username).text();
+        //         if (preUser == username) {
+        //             let p = 1;
+        //             console.log(preUser.cards)
+        //             preUser.cards.forEach((card) => {
+        //                 let id = u + p;
+        //                 fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+        //                 $(id).attr('src', fileUrl);
+        //                 p = p + 1;
+        //             })
+        //             setTimeout(() => {
+        //                 for (let j = 1; j <= 3; j++) {
+        //                     let id = u + j;
+        //                     $(id).attr('src', '/assets/images/cardback.svg')
+        //                 }
+        //             }, 3000)
+        //         }
+        //         if (currUser == username) {
+        //             let p = 1;
+        //             console.log(currUser.cards)
+        //             currUser.cards.forEach((card) => {
+        //                 let id = u + p;
+        //                 fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+        //                 $(id).attr('src', fileUrl);
+        //                 p = p + 1;
+        //             })
+        //             setTimeout(() => {
+        //                 for (let j = 1; j <= 3; j++) {
+        //                     let id = u + j;
+        //                     $(id).attr('src', '/assets/images/cardback.svg')
+        //                 }
+        //             }, 3000)
+        //         }
+        //     }
+        // }
+    })
+    socket.on('sideshow reject', (data) => {
+        $('.flash-message').text(data + ' has rejected the sideshow!');
+        $('.alert-light').fadeIn(300).delay(1600).fadeOut(300);
+    })
+    socket.on('sideshow error', (data) => {
+        $('.flash-message').text('Cannot perform sideshow.');
+        $('.alert-light').fadeIn(300).delay(1600).fadeOut(300);
+    })
+    socket.on('sideshow request', (player, data) => {
+        console.log('acknowledge', player)
+        $('.req-message').text(player + " has requested for side show.")
+        $('.req-btn').attr('hidden', false);
+        // $('.alert-light').fadeIn(300).delay(5000).fadeOut(300);
+
+    })
+    socket.on('display cards', (cards) => {
+        let i = 1;
+        console.log(cards)
+        cards.forEach((card) => {
+            id = '#u' + i;
+            fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+            $(id).attr('src', fileUrl);
+            i = i + 1;
+        })
+        $('.player img').css('height', '58px')
+        $("#see-button").attr('hidden', true);
+    })
+    socket.on('display cards on sideshow', (cards, user) => {
+        for (let i = 4; i >= 1; i--) {
+            let u = '#user' + i;
+            let username = '#userName' + i;
+            username = $(username).text();
+            if (user == username) {
+                let p = 1;
+                cards.forEach((card) => {
+                    id = u + p;
+                    fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+                    $(id).attr('src', fileUrl);
+                    // $(id).attr('hidden', false);
+                    p = p + 1;
+                })
+                $('.player img').css('height', '58px')
+                setTimeout(() => {
+
+                }, 3000)
+                break;
+            }
+        }
+    })
+    socket.on('display cards game over', (cards, user) => {
+        var players = [
+            { player: user1 },
+            { player: user2 },
+            { player: user3 },
+            { player: user4 },
+            { player: user5 }
+        ]
+        let j = 1;
+        players.forEach((player) => {
+            if (user != '<%=currUser.username%>') {
+                var u = '#user' + j;
+                var username = '#userName' + j;
+                username = $(username).text();
+                if (user == username) {
+                    let p = 1;
+                    console.log(cards)
+                    cards.forEach((card) => {
+                        id = u + p;
+                        fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+                        $(id).attr('src', fileUrl);
+                        // $(id).attr('hidden', false);
+                        p = p + 1;
+                    })
+                    $('.player img').css('height', '58px')
+                    $("#see-button").attr('hidden', true);
+                }
+            } else {
+                let i = 1;
+                console.log(cards)
+                cards.forEach((card) => {
+                    id = '#u' + i;
+                    fileUrl = '/assets/images/cards/' + card.type + '/' + card.type + '_' + card.name + '.svg';
+                    $(id).attr('src', fileUrl);
+                    // $(id).attr('hidden', false);
+                    i = i + 1;
+                })
+                $('.player img').css('height', '58px')
+                $("#see-button").attr('hidden', true);
+            }
+            j = j + 1;
+        })
+    })
+    socket.on('minByIn', () => {
+        socket.emit('leave', '<%= table %>', '<%= currUser.username%>');
+    })
+    socket.on('update status', (name) => {
+        requiredDiv = findDivWithName(name);
+        theClass = '#live-card-val-' + requiredDiv;
+        $('.flash-message').text(name + ' have seen their cards.')
+        $('.alert-light').fadeIn(300).delay(1000).fadeOut(300);
+        $(theClass).text('Cards seen')
+    })
+    socket.on('tip error', () => {
+        $('#feedback').text('Sorry, low balance. Sending tip failed.')
+        $('#feedback').fadeIn(300).delay(2000).fadeOut(300);
+    })
+    socket.on('tip added', () => {
+        $('#feedback').text('Thanks for the tip, ' + '<%= currUser.username %>')
+        $('#feedback').fadeIn(300).delay(2000).fadeOut(300);
+    })
+    socket.on('redirect', (destination) => {
+        console.log("hahahjdasjdh")
+        window.location.href = destination;
+    })
+    socket.on('timeout', (data) => {
+        $('.action-bar').attr('hidden', true);
+        $('.action-bar').removeClass('action-bar-active');
+        $('.flash-message').text(data);
+        $('.flash-message').fadeIn();
+        $('.alert-light').fadeIn(300).delay(2000).fadeOut(300);
+    })
+    socket.on('computer show', (data) => {
+        let currentRaise = $('#theValue').val();
+        $('.action-bar').attr('hidden', true);
+        $('.action-bar').removeClass('action-bar-active');
+        socket.emit('show time', currentRaise, '<%= table %>', 'sadik');
+    })
+    socket.on('computer blind', () => {
+        let currentRaise = $('#theValue').val();
+        // console.log('<%= currUser.username%>')
+        socket.emit('blind', currentRaise, '<%= table %>', 'sadik');
+    })
+    socket.on('computer chaal', () => {
+        let currentRaise = $('#theValue').val();
+        socket.emit('chaal', currentRaise, '<%= table %>', 'sadik');
+    })
+    socket.on('computer leave', (data) => {
+        let i = 1;
+        console.log(data)
+        data.players.forEach(element => {
+            if (element.username.name === 'sadik') {
+                for (let j = 1; j <= 5; j++) {
+                    var name = '#userName' + j;
+                    name = $(name).text();
+                    if (element.username.name == name) {
+                        var username = '#userName' + j;
+                        $("#proimg" + j).removeClass('userimage');
+                        $("#proimg" + j).addClass('groupimage');
+                        $(username).text('Name');
+                        $('#bootAmount' + j).text('₹0');
+                        $('#status' + j).text('Boot');
+                    }
+                }
+                i = i + 1;
+            }
+        });
+    })
+    socket.on('invite request', (inviteurl, player) => {
+        console.log('acknowledge', player)
+        $('.req-msg').text(player + " has requested for join table.")
+        $('.invite-href').prop('href', inviteurl);
+        $('.invite-req-btn').attr('hidden', false);
+        $('.alert-light').fadeIn(300).delay(5000).fadeOut(300);
+    })
+    socket.on('force leave', () => {
+        socket.emit('leave', '<%= table %>', '<%= currUser.username%>');
+    })
+    socket.on('remove action-bar', () => {
+        $('.action-bar').attr('hidden', true);
+    })
+    socket.on('remove sideshow req', () => {
+        $('.req-btn').attr('hidden', true);
+    })
+    $('#inc').on('click', () => {
+        if ($('#blind').css('display') == 'none') {
+            if ($('#theValue').val() == '<%= room.chaalLimit %>')
+                $('#inc').prop('disabled', true);
+            else
+                $('#theValue').val($('#theValue').val() * 2);
+        }
+        else {
+            let aVal = $('#theValue').val();
+            console.log(aVal);
+            if ($('#theValue').val() == '<%= room.chaalLimit/2 %>')
+                $('#inc').prop('disabled', true);
+            else
+                $('#theValue').val(aVal * 2);
+        }
+        $('#inc').attr('disabled', true);
+        $('#dec').attr('disabled', false);
+    })
+    $('#dec').on('click', () => {
+        let aVal = $('#theValue').val();
+        $('#theValue').val(aVal / 2);
+        $('#inc').attr('disabled', false);
+        $('#dec').attr('disabled', true);
+    })
+    $('#blind').on('click', () => {
+        let currentRaise = $('#theValue').val();
+        console.log(currentRaise)
+        socket.emit('blind', currentRaise, '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#chaal').on('click', () => {
+        let currentRaise = $('#theValue').val();
+        socket.emit('chaal', currentRaise, '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#pack').on('click', () => {
+        $('.action-bar').attr('hidden', true);
+        $('.action-bar').removeClass('action-bar-active');
+        socket.emit('pack', '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#see-button').on('click', () => {
+        socket.emit('cards open', '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#show').on('click', () => {
+        let currentRaise = $('#theValue').val();
+        $('.action-bar').attr('hidden', true);
+        $('.action-bar').removeClass('action-bar-active');
+        socket.emit('show time', currentRaise, '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#sideshow').on('click', () => {
+        let currentRaise = $('#theValue').val();
+        socket.emit('sideshow', currentRaise, '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#accept').on('click', () => {
+        $('.req-btn').attr('hidden', true)
+        socket.emit('accept', '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#decline').on('click', () => {
+        $('.req-btn').attr('hidden', true)
+        socket.emit('reject', '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#invite-btn').on('click', () => {
+        var radioValue = $("input[name='invite']:checked").val();
+        var url = window.location.href.split('?')[0];
+        if (radioValue) {
+            socket.emit('invite', radioValue, url, '<%= table %>', '<%= currUser.username%>');
+        }
+    });
+    // $('#accept-ivite-req').on('click', () => {
+    //     $('.invite-req-btn').attr('hidden', true)
+    // })
+    // $('#decline-invite-req').on('click', () => {
+        // $('.invite-req-btn').attr('hidden', true)
+    // })
+    $('#leave').on('click', () => {
+        socket.emit('leave', '<%= table %>', '<%= currUser.username%>');
+    })
+    $('#logout').on('click', () => {
+        socket.emit('leave', '<%= table %>', '<%= currUser.username%>');
+    })    
+</script>
+<% include ../partials/footer %>

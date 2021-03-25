@@ -1,0 +1,27 @@
+<% include ../partials/loginheader %>
+<% include ../partials/navbar %>
+<% include ../partials/subadminSidebar %>
+
+<div class="col-md-9 admin-opt">
+    <br>
+    <h1 class="google-sans live-caption">Admin menu<span class = 'roboto weight-300' style = 'font-size: 0.8em'>  | Change Password </span></h1>
+    <hr>
+    <div class="live-load">
+        <div class="container forms" style="width:94%; text-align: center;">
+                <form action="/subadmin/changepass" method="post" onsubmit="return change()">
+                    Old Password :<input type="text" name="oldpass" id="oldpass"> 
+                    <br><br>
+                    New Password :<input type="password" name="newpass" id="newpass">
+                    <br><br>
+                    Retype Password :<input type="password" name="repass" id="repass">
+                    <p name="msg" id="msg"></p>
+                    <button class="sb-user-btn">Change Password</button>
+                </form>
+                <p class="user-result"></p>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/admin.js"></script>
+
+<% include ../partials/footer %>

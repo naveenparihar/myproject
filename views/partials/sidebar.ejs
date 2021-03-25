@@ -1,0 +1,24 @@
+<div class="row">
+    <nav class = "col-md-2 google-sans" id="sidebar">
+           <div class="sidebar-header">
+               <div class="t1">
+                   Total Credits
+               </div>
+               <div class="credit">
+                   <img  src="/assets/images/chip2.svg">
+                   <h3>₹<%= currUser.credits %></h3>
+               </div>
+               <hr>
+               <div class="add-credit" data-toggle="modal" data-target="#exampleModal">
+                   Get more credits
+               </div>
+           </div>
+           <ul class="list-unstyled components">
+                   <a href ='/game'><li>Game Menu</li></a>
+               <a href ='/game/howtoplay'><li>How to Play</li></a>
+               <% if (currUser.typeOfUser === 'admin') { %>
+               <a href ='/admin/adminpanel'><li>Admin Home</li></a>
+               <a href ='/admin/transactions'><li>All transactions</li></a>
+              <% } %>
+           </ul>
+   </nav>

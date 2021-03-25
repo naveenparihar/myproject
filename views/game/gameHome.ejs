@@ -1,0 +1,62 @@
+<% include ../partials/loginheader %> 
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+                <div class="userinfo">
+                        <button type="button" class="btn btn-primary give-tip" data-toggle="modal" data-target="#exampleModalLong" hidden>
+                                Give tip
+                              </button>
+                        <i class="far fa-user" style="color:#fff"></i>
+                        <span class="s1">₹<%= currUser.credits %></span>
+                    <span class="s2"><%= currUser.username %></span>
+                    <a href="/auth/logout"><button><i class="fas fa-power-off"></i></button></a>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Play teen patti</h2>
+         </div>   
+    </div>
+    <div class="row logo" >
+        <div class="col-3"></div>
+            <div class="col-3">
+                <a href="/game/gameroom">
+                     <img class="image" src="/assets/images/public.png" alt="Snow">
+                    <p class="centered">Public</p>
+                </a>
+            </div>
+             <div class="col-3">  
+                    <a href="/game/private">
+                         <img class="image" src="/assets/images/public.png" alt="Snow">
+                        <p class="centered">Private</p>
+                    </a>
+             </div> 
+         <div class="col-3"></div>
+    </div>
+   <div class="row" style="margin-top:120px;">
+        <div class="col-md-12 t1">
+                <a href ='/game'><img class="img1" src="/assets/images/m1.png"></a> &nbsp;
+                <span><a href="#" class="button" data-dialog="somedialog" class="trigger">Buy Now</a></span>&nbsp;
+            <a href ='/game/howtoplay'><img class="img3" src="/assets/images/how.png"></a>
+        </div>
+    </div>
+    <div id="somedialog" class="dialog">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content">
+                <h3>Contact <strong> The Administrator.</strong></h3><div><button class="action" data-dialog-close>Close</button></div>
+            </div>
+        </div>
+          
+</div>
+<script>
+(function() {
+var dlgtrigger = document.querySelector( '[data-dialog]' ),
+    somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
+    dlg = new DialogFx( somedialog );
+
+dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
+
+})();
+</script>
+<% include ../partials/footer %>

@@ -1,0 +1,305 @@
+body {
+    
+    background-image:url("../assets/images/last3.jpg");
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -moz-background-size:cover;
+    color: #ffff;  
+    
+    width: 100%;
+    
+    }
+
+.userinfo {
+    float:right;
+    margin-top: 12px;
+}
+.s1{
+    font-size: 18px;
+    color: #FFC107;
+}
+.s2 {
+    padding : 10px;
+    color: #ffff;
+   font-size: 20px;
+}
+.userinfo a>button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+i{
+    color: #fff;
+
+}
+
+h4{
+    color: #ffff;
+    text-align: center;
+    font-family:sans-serif;
+}
+
+.img1{
+    width: 45px;
+}
+.img2{
+    width: 100px;
+}
+.img3{
+    width: 100px;
+}
+.t1{
+    margin-top: 30px;
+}
+
+.button {
+    /* text styles */
+    font-size: 15px;
+   text-decoration: none;
+    color: #fff;
+;   /* box styles */
+    display: inline-block;
+    height: 25px;
+    padding: 0 10px;
+    border: 1px solid;
+    border-color: #2d86b6 #24659e #255796;
+    border-radius: 21px;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 1px 1px rgba(1, 4, 8, 0.2);
+    
+    /* gradients */
+    background-color: #52b6ec;
+    *zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF52B6EC', endColorstr='#FF2E75CE');
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #52b6ec), color-stop(100%, #2e75ce));
+    background-image: -webkit-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+    background-image: -moz-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+    background-image: -o-linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+    background-image: linear-gradient(top, #52b6ec 0%, #2e75ce 100%);
+      
+  }
+  .t3{
+      margin-top: 150px;
+  
+}
+  
+hr{
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    width: 200px;
+}
+hr:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+  .t2{
+    margin-top:50px;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffff;
+    font-size: 16px;
+}
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 8s linear infinite;
+    -moz-animation:spin 8s linear infinite;
+    animation:spin 8s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@media screen and (max-width: 768px){
+    .s1{
+        font-size: 13px;
+    }
+    .s2{
+        font-size: 14px;
+    }
+    .userinfo a>button {
+        padding: 7px;
+        color: #fff;
+        border: none;
+        border-radius: 1000px;
+        background-color: #f44336d1;
+        cursor: pointer;
+    }
+    h4{
+        font-size: 20px;
+    }
+    
+    .centered{
+        font-size: 13px;
+        margin-left: -9px;
+        margin-top: -12px;
+    
+    }
+    .img1{
+        width: 38px;
+    }
+    .img3{
+        width: 85px;
+    }
+    .button{
+        font-size: 12px;
+        height: 20px;
+    }
+ .t1{
+     margin-top: -25px;
+ }
+ .t3{
+    margin-top: 100px;
+ }
+ .image{
+    width: 100px;
+    height: 100px;
+   padding: 2px;
+    
+ }
+}
+@media screen and (max-width: 667px){
+    .image{
+          width: 100px;
+            height: 100px;
+           padding: 10px;
+        }
+    h4{
+        font-size: 17px;
+        margin-top: 13px;
+    }
+    .t3{
+       margin-top: 90px;
+    }
+    .centered{
+        font-size: 12px;
+        left: 55px;
+    }
+    .userinfo a>button {
+        padding: 6px;
+        color: #fff;
+        border: none;
+        border-radius: 1000px;
+        background-color: #f44336d1;
+        cursor: pointer;
+    }
+    .s2{
+        font-size: 13px;
+    }
+    .s1{
+        font-size: 12px;
+    }
+    .img1{
+        width: 33px;
+    }
+    .img3{
+        width: 80px;
+    }
+    .button{
+        height: 18px;
+        font-size: 11px;
+    }
+    .t1{
+        margin-top: -30px;
+    }
+}
+@media screen and (max-width: 425px){
+.image{
+    width: 90px;
+    height: 90px;
+   padding: 12px;
+}
+h4{
+    font-size: 16px;
+    margin-top: 12px;
+}
+.t2{
+    margin-top: 15px;
+}
+.userinfo a>button {
+    padding: 6px;
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+.s2{
+    font-size: 13px;
+}
+.s1{
+    font-size: 12px;
+}
+.img1{
+    width: 33px;
+}
+.img3{
+    width: 80px;
+}
+.button{
+    height: 18px;
+    font-size: 11px;
+}
+.t1{
+    margin-top: -12px;
+}
+    
+.centered{
+    font-size: 10px;
+    margin-left: -36px;
+    margin-top: -15px;
+}
+.t3{
+    margin-top: 90px;
+}
+}
+@media screen and (max-width: 375px){
+    .image{
+        width: 90px;
+        height: 90px;
+        padding: 14px;
+    }
+    .centered{
+        font-size: 9px;
+        margin-left: -38px;
+    }
+    .t1{
+        margin-top: -45px;
+    }
+}
+@media screen and (max-width: 320px){
+    .image{
+        width: 85px;
+        height: 85px;
+        padding: 16px;
+    }
+    .centered{
+        font-size: 9px;
+        margin-left: -45px;
+        margin-top: -18px;
+    }
+    .t1{
+        margin-top: -45px;
+       
+    }
+}

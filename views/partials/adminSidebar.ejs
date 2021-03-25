@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/admin.css">
+<div class="row">
+<nav class = "col-md-3 google-sans admin-nav" id="sidebar" style="color:#fff">
+        <div class="profile-section">
+                <div class="profile-image"></div>
+                <h2>&nbsp;Admin Panel</h2>
+                <div class="name roboto">Current Username: 
+                        <hr>
+                        <strong><%= currUser.username %></strong></div>
+            </div>
+            <div class="admin-menu">
+                <ul class="list-unstyled components">
+                        <li><a href = "/game">Play game</a></li>
+                        <li><a href = "/admin/adminpanel">Admin Menu</a></li>
+                        <li><a href = "/admin/changeuser">Change Username</a></li>
+                        <li><a href = "/admin/changepass">Change Password</a></li>
+                        <li><a href = "/admin/users">All users</a></li>
+                        <li><a href = "/admin/transactions">Show all tansactions</a></li>
+                </ul>
+    </div>
+</nav>

@@ -1,0 +1,51 @@
+    </body>
+    <script src="/scripts/script.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+      // var test = io.connect("http://localhost:4400/game");
+      // test.on('invite request', (inviteurl, player) => {
+    //     alert(player)
+    //     $('.req-msg').text(player + " has requested for join table.")
+    //     $('.invite-href').prop('href', inviteurl);
+    //     $('.invite-req-btn').attr('hidden', false);
+    //     $('.alert-light').fadeIn(300).delay(5000).fadeOut(300);
+    // })
+        if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/scripts/sw.js')
+    .then(r => console.log('SW Registered'))
+    .catch(console.error)
+}
+if (window.PasswordCredential || window.FederatedCredential) {
+ if (!user) {
+   navigator.credentials.get({
+     password: true,
+     federated: {
+       providers: [
+         ' https://teen-patti-game.herokuapp.com'
+       ]
+     },
+     mediation: 'silent'
+   }).then(c => {
+     if (c) {
+       switch (c.type) {
+         case 'password':
+           return sendRequest(c);
+           break;
+         case 'federated':
+           return gSignIn(c);
+           break;
+       }
+     } else {
+       return Promise.resolve();
+     }
+   }).then(profile => {
+     if (profile) {
+       updateUI(profile);
+     }
+   }).catch(error => {
+     showError('Sign-in Failed');
+   });
+ }
+}
+    </script>
+</html>

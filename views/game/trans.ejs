@@ -1,0 +1,19 @@
+<% include ../partials/loginheader %> 
+<% include ../partials/navbar %>
+<% include ../partials/sidebar %>
+<div class="container forms" style="width:94%; text-align: center">
+        <form action="/admin/showTransactions" method="GET">
+            <ul style="text-align: left;">
+                <% data.forEach(function(data) { %>
+                    <h5> Transaction ID : <%= data._id %> </h5>
+                    <li><h6>Username : <%= data.username %> </h6> </li>
+                    <li><h6>Phone No : <%= data.phone%> </h6> </li>
+                    <li><h6>Credit: <%= data.credit%> </h6> </li>
+                    <li><h6>Date of transaction : <%= data.date %> </h6> </li>
+                    <hr>
+                <% }); %>
+            </ul>
+        </form>
+        <p class="user-result"></p>
+</div>
+<% include ../partials/footer %>

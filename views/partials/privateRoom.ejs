@@ -1,0 +1,21 @@
+<div class="col-md-9 admin-opt">
+    <br>
+    <h1 class="google-sans live-caption">Private Table<span class = 'roboto weight-300' style = 'font-size: 0.8em'>  | Enter Boot Amount </span></h1>
+    <hr>
+    <div class="live-load">
+        <div class="container forms" style="width:94%; text-align: center">
+                <form action="/game/private"  method="post">
+                    bootAmount : <input type="text" name="bootAmount" id="bootAmount"> 
+                    <br><br>
+                    <p name="msg" id="msg"></p>
+                    <button class="sb-user-btn" >Join</button>
+                </form>
+                <% if(postQuery === 1) { %>
+                <% if(newuserAdded === false) {%>
+                <p class="user-result"> <%= userAdded %> could not be added.</p>
+                <% } else { %>
+                <p class="user-result"> <%= userAdded %> added successfully</p>
+                <% }} %>
+        </div>
+    </div>
+</div>

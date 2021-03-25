@@ -1,0 +1,64 @@
+<header>
+    <div class="promo-logo">
+         <div id="content">
+                   <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+             </div>
+          
+                  
+            <!-- <h2 class = "google-sans">potluckie</h2> -->
+    </div>
+     <div class="userinfo">
+            <button type="button" class="btn btn-primary give-tip" data-toggle="modal" data-target="#exampleModalLong" hidden>
+                    Give tip
+                  </button>
+            <i class="far fa-user"></i>
+        <span><%= currUser.username %></span>
+        <span>₹<%= currUser.credits %></span>
+        <a href="/auth/logout"><button><i class="fas fa-power-off"></i></button></a>
+    </div>
+
+</header>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title google-sans" id="exampleModalLabel" style="color:#333">Get more credits</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="color: #333"> 
+                    Contact the 
+                    <strong>
+                        Administrator.
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                     <h3 class="modal-title google-sans" id="exampleModalLongTitle">Add a tip for the dealer</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" style="text-align: center">
+                        <h5>Enter tip amount </h5>
+                        <input type="text" name="tip" id="tip">
+                    </div>
+                    <p id='feedback'></p>
+                    <div class="modal-footer" style="border-top:none;">
+                      <button type="button" class="btn btn-secondary give-tip" style = 'background:#848484;' data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary give-tip" id = 'give-tip'>Give Tip</button>
+                    </div>
+                  </div>
+                </div>
+              </div>

@@ -1,0 +1,28 @@
+<% include ../partials/loginheader %>
+<% include ../partials/navbar %>
+<% include ../partials/adminSidebar %>
+
+<div class="col-md-9 admin-opt">
+    <br>
+    <h1 class="google-sans live-caption">Admin menu<span class = 'roboto weight-300' style = 'font-size: 0.8em'>  | Add Sub Admin Credits </span></h1>
+    <hr>
+    <div class="live-load">
+        <div class="container forms" style="width:94%; text-align: center">
+                <form action="/admin/subcredits"  method="POST" >
+                    Username : <input type="text" name="username" id="username"> 
+                    <br><br>
+                    Credits : <input type="text" name="credits" id="credits">
+                    <br><br>
+                    Phone No. : <input type="text" name="phone" id="phone">
+                    <br><br>
+                    <p name="msg" id="msg"></p>
+                    <button class="sb-user-btn" >Update Credit</button>
+                </form>
+                <p class="user-result"><%= errormessage %></p>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/admin.js"></script>
+
+<% include ../partials/footer %>

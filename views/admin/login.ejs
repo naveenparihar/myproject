@@ -1,0 +1,37 @@
+<% include ../partials/header %> 
+    <div class="container">
+        <header>
+            <h1 class="title google-sans">
+                Khelo Jeeto
+            </h1>
+            <h3 class="underline open-sans">
+                Play the exciting game of teen patti
+            </h3>
+        </header>
+        <div class="auth">
+                <form action='/admin/login' method='POST' style="width:80%;margin:auto">
+                    Sign in to play the fun and exciting game of teen patti.
+                    <br><br>
+                        
+                            <label for="username">
+                                    <input type="text" name = "username" placeholder="username">
+                                </label>
+                            <br>    
+                                <label for="password">
+                                    <input type="password" name = "password" placeholder = "password" autocomplete="new-password">
+                                </label>
+                        <br><br>
+                            <label for="Terms & Conditions" >
+                                <input type="checkbox" id = "check" name = "Terms & Conditions">
+                                By signing in you agree to the <strong>Terms of Use</strong> and <strong>Privacy Policy</strong>
+                            </label>
+                        <br><br>  
+                        
+                        <input type="submit" class="btn btn-primary" value="Login"> 
+                </form>
+        </div>
+        
+   </div>
+
+
+<%include ../partials/footer %>

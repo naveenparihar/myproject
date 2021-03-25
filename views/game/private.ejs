@@ -1,0 +1,109 @@
+<% include ../partials/roomheader %>
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-12">
+                    <div class="userinfo">
+                            <button type="button" class="btn btn-primary give-tip" data-toggle="modal" data-target="#exampleModalLong" hidden>
+                                    Give tip
+                                  </button>
+                            <i class="far fa-user"></i>
+                            <span class="s1" >₹<%= currUser.credits %></span>
+                        <span class="s2"><%= currUser.username %></span>
+                        <a href="/auth/logout"><button><i class="fas fa-power-off"></i></button></a>
+                    </div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+               <h4>Choose a room to begin</h4>
+              <div class="error"></div>
+            <%if(notAllowed) {%>
+                <script>
+                   setTimeout(()=>{
+                       $('.error').text("You're not eligible to enter this room. (Low Balance, get more credits)")
+                       $('.error').fadeIn(600).delay(2500).fadeOut(300);
+                   })
+                </script>
+            <% } %>  
+            </div> 
+         
+    </div>
+  
+    <div class="row t3">
+            <div class="col-1"></div>
+         <div class="col-2">
+                  <a href="/game/private/1">
+                   <img class="image" src="/assets/images/public.png" alt="Snow">
+                     <p class="centered">10</p>
+                </a>
+        </div>
+        
+        <div class="col-2">
+           
+                 <a href="/game/private/2">
+                     <img class="image" src="/assets/images/public.png" alt="Snow">
+                     <p class="centered">50</p>
+                </a>
+         
+        </div> 
+        <div class="col-2">
+         
+                <a href="/game/private/3">
+                   <img class="image" src="/assets/images/public.png" alt="Snow">
+                   <p class="centered">100</p>
+                 </a>
+          
+        </div>  
+        <div class="col-2">
+                <a href="/game/private/4">
+                  <img class="image" src="/assets/images/public.png" alt="Snow">
+                   <p class="centered">200</p>
+                </a>
+      
+    </div>
+   <div class="col-2">
+    
+         <a href="/game/private/5">
+             <img class="image" src="/assets/images/public.png" alt="Snow">
+             <p class="centered">500</p>
+          </a>
+    
+  </div> 
+  <div class="col-1"></div>                                            
+    </div>
+    <div class="row" style="text-align:center;margin-top: 120px;">
+            <div class="col-md-12 t1">
+                    <a href ='/game'><img class="img1" src="/assets/images/m1.png"></a> &nbsp;
+                    <span><a href="#" class="button" data-toggle="modal" data-target="#myModal">Buy Now</a></span>&nbsp;
+                <a href ='/game/howtoplay'><img class="img3" src="/assets/images/how.png"></a>
+            </div>
+    </div>
+    <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Get More Credit</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                        Contact the 
+                        <strong>
+                            Administrator.
+                        </strong>
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+    </div>
+          
+</div>
+<% include ../partials/footer %>

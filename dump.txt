@@ -1,0 +1,165 @@
+<!--div  class ="wrapper">
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Collapsible Sidebar
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li><a href="#">Page</a></li>
+                    <li><a href="#">Page</a></li>
+                    <li><a href="#">Page</a></li>
+                </ul>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</div-->
+
+============================================================================================================
+(function () {
+            newPlayer = new client(currUserID,currUsername,cards);
+            console.log("ha executed!")
+        })(currUserID,currUsername,cards);
+
+        (function (){
+            newTable = new table(tableId,bootamount);
+        })(tableId,bootamount);
+
+        socket.username =  currUsername;
+        socket.room =  tableId;
+
+        socket.join(tableId); 
+
+        (function (){ 
+            if(tableArray.length === 0) {
+                newTable.addPlayer(newPlayer);
+                tableArray.push(newTable);
+            }
+            else {
+                for( let i = 0; i< tableArray.length; i++) {
+                    if(tableArray[i].tableId === tableId) {
+                        tableArray[i].addPlayer(newPlayer);
+                        break;
+                    }
+                    else {
+                        newTable.addPlayer(newPlayer);
+                        tableArray.push(newTable);
+                    }
+                }
+            }
+        })();
+
+================================================================================
+// setTimeout(()=> {
+                //     console.log('new player turn');
+                //     for( let k = 0; k <currentRoom.activePlayers.length; k++){ 
+                //         if ( currentRoom.activePlayers[k] === thePlayer.username.name) {
+                //             currentRoom.activePlayers.splice(k, 1); 
+                //         }
+                //     }
+                //     console.log(currentRoom);
+                //     console.log("\n------------------------------------------------------");
+                //     room.in(currentRoom.tableId).emit('removeActiveChaal',thePlayer.username.name);
+                //     if(currentRoom.activePlayers.length === 1)
+                //     {
+                //         console.log("getting in if");
+                //         room.in(currentRoom.tableId).emit('declareWinner', currentRoom.activePlayers[0]);
+                //         currentRoom.gameStatus = false;
+                //         return;
+                //     }
+                //     else
+                //         playerChance(currentRoom.players[j+1]);
+                // },10000);
+================================================================================
+
+let j = 0;
+            function playerChance(thePlayer) {
+                if(currentRoom.gameStatus === false) {
+                    console.log("function returned hrere");
+                    return;
+                }
+                if(j==4)
+                {
+                    j = 0;
+                    console.log("j condition run");
+                }
+                room.in(currentRoom.tableId).emit('activeChaal',thePlayer.username.name,currentRoom.chalValue);
+                
+                if(currentRoom.activePlayers.length === 1)
+                {
+                    console.log("getting in if");
+                    room.in(currentRoom.tableId).emit('declareWinner', currentRoom.activePlayers[0]);
+                    currentRoom.gameStatus = false;
+                    return;
+                }
+                socket.on('blind', function(data){
+                        console.log(currentRoom)
+                        currentRoom.chalValue = data;
+                        currentRoom.potValue = currentRoom.potValue + data;
+                        room.in(currentRoom.tableId).emit('updatePotvalue',currentRoom.potValue);
+                        room.in(currentRoom.tableId).emit('updateChaalValue',currentRoom.chalValue);
+                    
+                    room.in(currentRoom.tableId).emit('removeActiveChaal',thePlayer.username.name);
+                    playerChance(currentRoom.players[j+1]);
+                });
+                socket.on('seeCards',function() {
+                    thePlayer.cardStatus = true;
+                    room.in(currentRoom.tableId).emit('cardSeenActivity', thePlayer.username.name);
+                });
+                socket.on('chaal', function(data){
+                    currentRoom.chalValue = data;
+                    currentRoom.potValue = currentRoom.potValue + data;
+                    room.in(currentRoom.tableId).emit('updatePotvalue',currentRoom.potValue);
+                    room.in(currentRoom.tableId).emit('updateChaalValue',currentRoom.chalValue);
+                    room.in(currentRoom.tableId).emit('removeActiveChaal',thePlayer.username.name);
+                    playerChance(currentRoom.players[j+1]);
+                });
+            }
+            playerChance(currentRoom.players[j]);
+
+============================================================================================
+
+ function gameBegin(table, activeTable) {
+        
+    }
+    function getNextActivePlayer(table, activeTable, plCount) {
+        if(plCount)
+
+    }
+    
+    socket.on('blind',function(data,tableID,player) {
+        var table = fetchRoom(tableID);
+        var thePlayer = getPlayer(table,player);
+        table.chalValue = data;
+        table.potValue = table.potValue + data;
+        room.in(currentRoom.tableId).emit('updatePotvalue',table.potValue);
+        room.in(currentRoom.tableId).emit('updateChaalValue',table.chalValue);
+        getNextActivePlayer();
+    })
+
+
+------------------------------------------------------------------------------------------
+ function gameBegin(currentRoom, activeTableID) {
+        room.in(currentRoom.tableId).emit('gameBegins','The game begins!',currentRoom.potValue)
+        for(let i=0;i<currentRoom.players.length; i++){
+            let flag = 0;
+            for(let j = 0; j<currentRoom.activePlayers.length; j++) {
+                if(currentRoom.players[i].username.name === currentRoom.activePlayers[j]) {
+                    flag = 1; 
+                    break;
+                }
+            }
+            if(!flag)
+                currentRoom.addActivePlayer(currentRoom.players[i].username.name);
+        }

@@ -1,0 +1,104 @@
+
+body {
+    background-image:url("../assets/images/last3.jpg");
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -moz-background-size:cover;
+    color: #ffff;  
+    
+    width: 100%;
+}.quicksand {
+    font-family: Quicksand;
+}
+.google-sans {
+    font-family: Google Sans;
+}
+.open-sans {
+    font-family: open sans;
+}
+.roboto {
+    font-family: Roboto;
+}
+.head
+{
+    padding: 19px 0px 5px 10px;
+    font-family: Google Sans;
+}
+.main
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-size: 10px;
+}
+.ranking
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.light
+{
+    font-family: Google Sans;
+    color: #f2f2f2;
+}
+.ranking img
+{
+    width: 80%;
+    height: auto;
+    border-style: none;
+}
+.bottom
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-family: Google Sans;
+}
+h1
+{
+    font-family: Google Sans;
+    font-size: 55px;
+}
+h2
+{
+    font-family: Google Sans;
+}
+p
+{
+    font-family: Google Sans;
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+.list
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Google Sans;
+    font-size: 16px;
+}
+.img1{
+    width: 45px;
+    margin-top:6px;
+}
+.userinfo {
+    float:right;
+    margin-top: 12px;
+}
+
+.userinfo span {
+    padding : 10px;
+    color: #ffff;
+   font-size: 20px;
+}
+.userinfo a>button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 1000px;
+    background-color: #f44336d1;
+    cursor: pointer;
+}
+i{
+    color: #fff;
+
+}

@@ -1,0 +1,177 @@
+<% include ../partials/loginheader %> 
+<link rel="stylesheet" href="/css/howtoplay.css">
+<div class="row">
+    <div class="col-2 ">
+        <a href ='/game'><img class="img1" src="../assets/images/m1.png"></a>
+    </div>
+    <div class="col-10">
+            <div class="userinfo">
+                    <button type="button" class="btn btn-primary give-tip" data-toggle="modal" data-target="#exampleModalLong" hidden>
+                            Give tip
+                        </button>
+                    <i class="far fa-user"></i>
+                    <span style="font-size: 18px;color: #FFC107;">₹<%= currUser.credits %></span>
+                <span><%= currUser.username %></span>
+                <a href="/auth/logout"><button><i class="fas fa-power-off"></i></button></a>
+            </div>
+    </div>
+</div>
+<div class="col-md-12" style="text-align:center">
+<div class="head">
+        <h1>How to Play</h1>
+  </div>
+<div class="main">
+    
+    <p>
+        Teenpatti (also spelled Teenpathi and sometimes referred to as Flash) is a gambling card game that originated in India and became popular in Southeast Asia. 
+        Teenpatti is Indias twist on 3 card poker and is identical to 3-card brag which is popular in the UK.
+    </p>
+    <br>
+    <h2>Ranking of the hands</h2>
+    <p>
+        Aces are ranked the highest and 2's are the lowest. The objective of the game is to have the best 3-card hand and to maximize the pot before the showdown. The categories are ranked as follows (from high to low):
+    </p>
+</div>
+<br>
+<div class="ranking">
+    <p class="light">
+        Trail (three of a kind): Three cards of the same rank. Three aces are the highest and three 2s are the lowest. 
+    </p>
+    <img src="http://www.jungleeteenpatti.com/images/howto/1.png"> 
+    <br><br>
+    <p class="light">
+        Pure Sequence (Straight Flush): Three consecutive cards of the same suit. 
+    </p>
+    <img src="http://www.jungleeteenpatti.com/images/howto/2.png">
+    <br><br>
+    <p class="light">
+        Sequence (Straight): Three consecutive cards not all in the same suit. 
+    </p>
+    <img src="http://www.jungleeteenpatti.com/images/howto/3.png">
+    <br><br>
+    <p class="light">
+        Color (Flush): Three cards of the same suit that are not in sequence. 
+        When comparing two colors, first compare the highest card. 
+        If these are equal, compare the second and if these are equal compare the lowest. 
+        Highest flush is A-K-J and the lowest flush is 5-3-2. 
+    </p>
+    <img src="http://www.jungleeteenpatti.com/images/howto/4.png">
+    <br><br>
+    <p class="light">
+        Pair (two of a kind): Two cards of the same rank. Between two pairs, the one with the higher value is the winner. 
+        If the pairs are of equal value then the kicker card determines the winner.
+        The highest pair is A-A-K and the lowest is 2-2-3. 
+    </p>
+    <img  src="http://www.jungleeteenpatti.com/images/howto/5.png">
+    <br><br>
+    <p class="light">
+        High Card: A hand in which the three cards are not in sequence, not all the same suit and no two cards have the same rank. 
+        If two players share a common high card, the next highest card is used to determine the winner. 
+        The best high card hand would be an AKJ of different suits and the worst is 5-3-2. 
+    </p>
+    <img src="http://www.jungleeteenpatti.com/images/howto/6.png">
+    <br><br>
+</div>
+<div class="bottom">
+    <p>
+        The game and betting process:The dealer is chosen randomly and cards are dealt clockwise with players taking turns around the table. 
+        Each player can either put an additional bet into the table to stay in or bet nothing and fold. 
+        Everybody is dealt three cards and the boot is automatically deducted from each player and added to the pot at the start of the game. 
+        Pot is the collection of money at the center of the table. 
+        Players have the option to look at their hand before betting (playing seen) or to leave their cards face down on the table (playing blind). 
+        Blind players can click see to see their cards at any time during the game. 
+        Once a blind player sees their cards, they become a seen player. 
+        The amount that you have to put in at your turn in order to stay in the game depends on the current stake, and whether you are playing blind or seen. 
+        At the start of the game the current stake is the minimum bet. 
+        During the game, the current stake is the bet placed by the player who bet before you. 
+    </p>
+    <ul class="list">
+        If you are a blind player (you have not looked at your cards):
+        <li>
+            If the player that bet before you is seen, you must bet at least half of the current stake OR bet the current stake.
+        </li>
+        <li>
+            If the player that bet before you is blind, you must bet at least the current stake OR bet twice the current stake.
+        </li>
+        <li>
+            Example (when playing blind): (a) if the player before you is seen and bet 10, you can bet either 5 or 10 (b) if the player before you is blind and bet 10, you can bet either 10 or 20
+        </li>
+        <br>
+        If you are a seen player:
+        <li>
+            If the player that bet before you is seen, you must bet at least the current stake OR bet twice the current stake.
+        </li>
+        <li>
+            If the player before you bet blind, you must bet at least twice the current stake OR bet four times the current stake.
+        </li>
+        <li>
+            Example (when playing seen: (a) if the player before you is seen and bet 10, you can bet either 10 or 20 (b) if the player before you is blind and bet 10, you can bet either 20 or 40
+        </li>
+        <br>
+        The betting continues in this way until one of the following happens:
+        <li>
+                All players except one fold their cards. 
+                In this case, the last surviving player wins all the money in the pot, irrespective of the cards held and his cards are not exposed to anyone.
+        </li>
+        <li>
+                All except two players fold and one of the final two players at their turn pays for a show. 
+                In this case, the cards of both players are exposed and compared and the player with the better hand wins. 
+                If both players have the same hand, the player who did not ask for the show wins.
+        </li>
+        <br>
+        Show:
+        <li>
+            A show cannot occur until all but two players have dropped out.
+        </li>
+        <li>
+            The current stake is the bet placed by the player who bet before you.
+        </li>
+        <li>
+            If you are a blind player:
+            <ol>
+                If the other player is blind, you can ask for a show for the current stake.
+            </ol>
+            <ol>
+                If the other player is seen, you can ask for a show for half the current stake.
+            </ol>
+            <ol>
+                In either case, you do not get to look at your own cards until after you have paid for the show.
+            </ol>
+        </li>
+        <li>
+            If you are a seen player:
+            <ol>
+                If the other player is blind, you can ask for a show for twice the current stake.
+            </ol>
+            <ol>
+                If the other player is seen, you can ask for a show for the current stake.
+            </ol>
+        </li>
+        <li>
+            In a show, both players' cards are exposed, and the player whose hand is higher ranking wins the pot. 
+            If the hands are equal, the player who did not pay for the show wins the pot.
+        </li>
+        <br>
+        Sideshow (Compromise): 
+        <li>You can only ask for a compromise if you and the player that bet before you are both playing seen. 
+        The player can accept or decline your sideshow request. 
+        If you dont have enough money to match the current bet, you cant ask for a sideshow.
+        </li>
+        <li>
+            If the sideshow request is accepted, the two players involved privately compare their cards, and the player with the lower hand is forced to fold. 
+            If the hands are equal, the player who asked for the sideshow is forced to fold.
+        </li>
+        <li>
+            If the sideshow is refused, the player requesting the sideshow must bet to stay in the game or fold.
+        </li>
+        <br>
+    </ul>
+    Running out of money:If you run out of money, you can continue playing or fold. 
+    To continue playing, you can bring more money into the table from your main account or you can go all-in. 
+    If you go all-in, side pots are created to determine the winner(s). 
+    A side pot is separate pot to which not all players contributed and are not eligible to win. 
+    Side pots occur when a player goes all-in and other players continue to wager more than the all-in player. 
+    Separate showdowns occur for each side pot and for the main pot, and players not eligible to win a particular pot do not participate in the showdown for it.
+</div>
+</div>
+<% include ../partials/footer %>
